@@ -1,0 +1,88 @@
+{
+	"info": {
+		"_postman_id": "37ce6e1c-11c0-462f-a2da-4af8388fc041",
+		"name": "roost-hackathon",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "usersAPI",
+			"item": [
+				{
+					"name": "insertUser",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users?USER_NAME=Aniket Gajjar&USER_ADDRESS=Ahemdabad&USER_MOBILE=9106447228&USER_EMAIL_ID=aniketgajjar966@gmail.com&USER_SALARY=50000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "USER_NAME",
+									"value": "Aniket Gajjar"
+								},
+								{
+									"key": "USER_ADDRESS",
+									"value": "Ahemdabad"
+								},
+								{
+									"key": "USER_MOBILE",
+									"value": "9106447228"
+								},
+								{
+									"key": "USER_EMAIL_ID",
+									"value": "aniketgajjar966@gmail.com"
+								},
+								{
+									"key": "USER_SALARY",
+									"value": "50000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllUsers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
