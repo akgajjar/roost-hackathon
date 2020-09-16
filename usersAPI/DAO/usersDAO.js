@@ -40,7 +40,27 @@ usersDAO.update = (_id, user) => {
       },
       (err, numAffected, updatedUsers) => {
         if (err) reject(err);
-        resolve({"Number of Updated User" : numAffected , "Updated Users" : updatedUsers});
+        resolve({
+          "Number of Updated User": numAffected,
+          "Updated Users": updatedUsers,
+        });
+      }
+    );
+  });
+};
+
+usersDAO.remove = (_id) => {
+  return new Promise((resolve, reject) => {
+    db.remove(
+      { _id: _id },
+      {
+        multi: true,
+      },
+      (err, numAffected) => {
+        if (err) reject(err);
+        resolve({
+          "Number of Deleted User": numAffected,
+        });
       }
     );
   });

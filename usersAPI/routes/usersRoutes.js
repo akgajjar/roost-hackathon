@@ -92,5 +92,21 @@ router.put("/api/users/:_Id", (req, res) => {
     });
 });
 
+router.delete("/api/users/:_Id", (req, res) => {
+  usersDAO
+    .remove(req.params._Id)
+    .then((response) => {
+      console.log("User Deleted Successfully!!!!");
+      res.send({
+        data: response,
+        Message: "User Deleted Successfully!!!!!",
+      });
+      res.end();
+    })
+    .catch((err) => {
+      console.log("Error while Deleting user!!!!" + err);
+      res.send("Error while Deleting User!!");
+    });
+});
 
 module.exports = router;
