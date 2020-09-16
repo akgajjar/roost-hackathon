@@ -32,7 +32,6 @@ router.post("/api/users", (req, res) => {
     });
 });
 
-
 router.get("/api/users", (req, res) => {
   usersDAO
     .get()
@@ -109,4 +108,39 @@ router.delete("/api/users/:_Id", (req, res) => {
     });
 });
 
+router.get("/api/status", async (req, res) => {
+  try {
+    const user = {
+      USER_NAME: "healthCheck",
+      USER_ADDRESS: "healthCheck",
+      USER_EMAIL_ID: "healthCheck",
+      USER_MOBILE: "healthCheck",
+      USER_SALARY: 0,
+    };
+
+    insertedUser = usersDAO.create(user);
+
+    const _id = insertedUser._id;
+    delete insertedUser._id;
+
+    users = usersDAO.get();
+
+    selecteduser = usersDAO.getById(insertedUser._id);
+
+    updatedUser = usersDAO.update(_id, insertedUser);
+
+    response = usersDAO.remove(_id);
+
+    res.send({
+      healty: true,
+      message: "Api is working as expected",
+    });
+  } catch (err) {
+    console.log("Api is not working as expected!!!!" + err);
+    res.send({
+      healty: false,
+      message: "Api is not  working as expected",
+    });
+  }
+});
 module.exports = router;
