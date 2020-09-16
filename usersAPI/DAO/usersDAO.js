@@ -20,4 +20,17 @@ usersDAO.get = (user) => {
   });
 };
 
+usersDAO.getById = (_id) => {
+  return new Promise((resolve, reject) => {
+    db.find({_id : _id}, (err, user) => {
+      if (err) reject(err);
+      resolve(user);
+    })    
+  });
+};
+
+
+
+
+
 module.exports = usersDAO;

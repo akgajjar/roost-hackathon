@@ -41,6 +41,23 @@ router.get("/api/users", (req, res) => {
       console.log("Users found Successfully!!!!");
       res.send({
         data: users,
+        Message: "Users found Successfully!!!!!",
+      });
+      res.end();
+    })
+    .catch((err) => {
+      console.log("Error while selecting users!!!!");
+      res.send("Error while selecting Users!!");
+    });
+});
+
+router.get("/api/users/:_id", (req, res) => {
+  usersDAO
+    .getById(req.params._id)
+    .then((user) => {
+      console.log("User found Successfully!!!!");
+      res.send({
+        data: user,
         Message: "User found Successfully!!!!!",
       });
       res.end();
@@ -50,5 +67,7 @@ router.get("/api/users", (req, res) => {
       res.send("Error while selecting User!!");
     });
 });
+
+
 
 module.exports = router;
