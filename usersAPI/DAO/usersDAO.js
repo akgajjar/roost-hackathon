@@ -13,7 +13,7 @@ usersDAO.create = (user) => {
 
 usersDAO.get = (user) => {
   return new Promise((resolve, reject) => {
-      db.find({}, (err, users) => {
+    db.find({}, (err, users) => {
       if (err) reject(err);
       resolve(users);
     });
@@ -22,15 +22,28 @@ usersDAO.get = (user) => {
 
 usersDAO.getById = (_id) => {
   return new Promise((resolve, reject) => {
-    db.find({_id : _id}, (err, user) => {
+    db.find({ _id: _id }, (err, user) => {
       if (err) reject(err);
       resolve(user);
-    })    
+    });
   });
 };
 
-
-
-
+usersDAO.update = (_id, user) => {
+  return new Promise((resolve, reject) => {
+    db.update(
+      { _id: _id },
+      user,
+      {
+        returnUpdatedDocs: true,
+        multi: true,
+      },
+      (err, numAffected, updatedUsers) => {
+        if (err) reject(err);
+        resolve({"Number of Updated User" : numAffected , "Updated Users" : updatedUsers});
+      }
+    );
+  });
+};
 
 module.exports = usersDAO;

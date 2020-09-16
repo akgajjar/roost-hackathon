@@ -16,7 +16,6 @@ router.post("/api/users", (req, res) => {
     USER_SALARY: Number(req.query.USER_SALARY),
   };
 
-    console.log(user);
   usersDAO
     .create(user)
     .then((insertedUser) => {
@@ -51,9 +50,9 @@ router.get("/api/users", (req, res) => {
     });
 });
 
-router.get("/api/users/:_id", (req, res) => {
+router.get("/api/users/:_Id", (req, res) => {
   usersDAO
-    .getById(req.params._id)
+    .getById(req.params._Id)
     .then((user) => {
       console.log("User found Successfully!!!!");
       res.send({
@@ -68,6 +67,30 @@ router.get("/api/users/:_id", (req, res) => {
     });
 });
 
+router.put("/api/users/:_Id", (req, res) => {
+  const user = {
+    USER_NAME: req.query.USER_NAME,
+    USER_ADDRESS: req.query.USER_ADDRESS,
+    USER_EMAIL_ID: req.query.USER_EMAIL_ID,
+    USER_MOBILE: req.query.USER_MOBILE,
+    USER_SALARY: Number(req.query.USER_SALARY),
+  };
+
+  usersDAO
+    .update(req.params._Id, user)
+    .then((updatedUser) => {
+      console.log("User Updated Successfully!!!!");
+      res.send({
+        data: updatedUser,
+        Message: "User Updated Successfully!!!!!",
+      });
+      res.end();
+    })
+    .catch((err) => {
+      console.log("Error while Updating user!!!!");
+      res.send("Error while Updating User!!");
+    });
+});
 
 
 module.exports = router;
