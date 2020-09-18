@@ -2,12 +2,16 @@
 const express = require("express");
 const router = express.Router();
 const enrollService = require("../Service/enrollService.js");
+const routes = require("../epConfig.js").apiRoutes;
+const responseMessage = require("../epConfig.js").responseMessages;
+const dummyUser = require("../epConfig.js").healthCheckDummyUser;
+const utils = require("../utils/enrollUtils.js");
 
 const bodyParser = require("body-parser");
 
 router.use(bodyParser.urlencoded({ extended: true }));
 
-router.post("/api/enroll/register", (req, res) => {
+router.post(routes.register, (req, res) => {
   const user = {
     USER_NAME: req.query.USER_NAME,
     USER_ADDRESS: req.query.USER_ADDRESS,
@@ -19,58 +23,54 @@ router.post("/api/enroll/register", (req, res) => {
   enrollService
     .register(user)
     .then((response) => {
+      console.log(responseMessage.registerUserSuccessMessage);
       res.send({
-        message: "user successfully registered !!!!!",
+        message: responseMessage.registerUserSuccessMessage,
         data: response,
       });
     })
     .catch((err) => {
-      console.log("Error occured while registering user!!!");
+      console.log(utils.concate(responseMessage.registerUserFailureMessage, " " + err));
       res.send({
-        message: "Error occured while registering user!!!",
+        message: responseMessage.registerUserFailureMessage,
         Error: err,
       });
     });
 });
 
-router.delete("/api/enroll/deRegister/:_Id", (req, res) => {
+router.delete(routes.deRegister, (req, res) => {
   enrollService
     .deRegister(req.params._Id)
     .then((response) => {
+      console.log(utils.concate(responseMessage.deRegisterUserSuccessMessage, " ", err));
       res.send({
-        message: "user successfully Deregistered !!!!!",
+        message: responseMessage.deRegisterUserSuccessMessage,
         data: response,
       });
     })
     .catch((err) => {
-      console.log("Error occured while Deregistering user!!!");
+      console.log(responseMessage.deRegisterUserFailureMessage);
       res.send({
-        message: "Error occured while Deregistering user!!!",
+        message: responseMessage.deRegisterUserFailureMessage,
         Error: err,
       });
     });
 });
 
-router.get("/api/status", async (req, res) => {
-  const user = {
-    USER_NAME: "healthCheck",
-    USER_ADDRESS: "healthCheck",
-    USER_EMAIL_ID: "healthCheck",
-    USER_MOBILE: "healthCheck",
-    USER_SALARY: 0,
-  };
+router.get(routes.checkStatus, async (req, res) => {
   try {
-    resgisteredUser = await enrollService.register(user);
+    resgisteredUser = await enrollService.register(dummyUser);
     response = await enrollService.deRegister(resgisteredUser._id);
+    console.log(responseMessage.checkStatusSuccessMessage);
     res.send({
       healty: true,
-      message: "Api is working as expected",
+      message: responseMessage.checkStatusSuccessMessage,
     });
   } catch (err) {
-    console.log("Api is not working as expected!!!!" + err);
+    console.log(utils.concate(responseMessage.checkStatusFailureMessage, err));
     res.send({
       healty: false,
-      message: "Api is not  working as expected",
+      message: responseMessage.checkStatusFailureMessage,
     });
   }
 });

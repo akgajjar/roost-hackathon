@@ -1,19 +1,23 @@
 const express = require("express");
+const routes = require("./epConfig.js").apiRoutes;
+const env = require("./epConfig.js").env;
 const app = express();
-const port = process.env.PORT || 3001;
+const port = env.port;
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const enrollRoutes = require("./routes/enrollRoutes.js");
+const responseMessages = require("./epConfig.js").responseMessages;
+const utils = require("./utils/enrollUtils.js")
 
 app.use(morgan("short")); // we can use combined for detailed logs.
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("./views"));
+app.use(express.static(env.viewsFolder));
 app.use(enrollRoutes);
 
-app.get("/", (req, res) => {
-  console.log("responding to root route");
+app.get(routes.root, (req, res) => {
+  console.log(responseMessages.rootResponse);
 });
 
 app.listen(port, () => {
-  console.log(`Server is up and listening on ${port}!!!!!!`);
+  console.log(utils.concate(responseMessages.serverInitMessage, " " , port , "!!!"));
 });
