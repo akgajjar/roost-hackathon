@@ -1,0 +1,25 @@
+{
+  "name": "enrollapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "build-url": "^6.0.1",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "nedb": "^1.8.0",
+    "superagent": "^6.1.0",
+    "tarn": "^3.0.0"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.4"
+  }
+}

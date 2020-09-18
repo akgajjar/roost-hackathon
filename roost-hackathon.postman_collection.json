@@ -79,6 +79,98 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "getuserById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/users/5JKZnclQ1ADgojoV",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"5JKZnclQ1ADgojoV"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateUser",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/users/5JKZnclQ1ADgojoV?USER_NAME=Aniket Gajjar&USER_ADDRESS=Ahemdabad&USER_MOBILE=9106447228&USER_EMAIL_ID=aniketgajjar966@gmail.com&USER_SALARY=50000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"5JKZnclQ1ADgojoV"
+							],
+							"query": [
+								{
+									"key": "USER_NAME",
+									"value": "Aniket Gajjar"
+								},
+								{
+									"key": "USER_ADDRESS",
+									"value": "Ahemdabad"
+								},
+								{
+									"key": "USER_MOBILE",
+									"value": "9106447228"
+								},
+								{
+									"key": "USER_EMAIL_ID",
+									"value": "aniketgajjar966@gmail.com"
+								},
+								{
+									"key": "USER_SALARY",
+									"value": "50000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "checkStatus",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
