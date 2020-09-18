@@ -35,7 +35,7 @@ spec:
     spec:
       containers:
       - name: users-api
-        image: users-api:v.1.0.0
+        image: users:v.1.0.0
         stdin: true
         tty: true
         ports:

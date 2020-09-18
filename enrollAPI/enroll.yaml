@@ -35,7 +35,7 @@ spec:
     spec:
       containers:
       - name: enroll-api
-        image: enroll-api:v.1.0.0
+        image: enroll:v1.0.0
         stdin: true
         tty: true
         ports:
