@@ -1,0 +1,38 @@
+module.exports = {
+  apiRoutes: {
+    createUser: "/api/users",
+    getUsers: "/api/users",
+    getUserById: "/api/users/:_Id",
+    updateUser: "/api/users/:_Id",
+    deleteUser: "/api/users/:_Id",
+    checkStatus: "/api/status",
+    root: "/",
+  },
+  env: {
+    port: 3000,
+    viewsFolder: "./views",
+  },
+  responseMessages: {
+    rootResponse: "responding to root route",
+    serverInitMessage: `Server is up and listening on `,
+    createUserSuccessMessage: "User Inserted Successfully!!!",
+    createUserFailureMessage: "Error while inserting user!!!",
+    getUsersSuccessMessage: "Users found Successfully!!!!",
+    getUsersFailureMessage: "Error while Selecting users!!!",
+    getUserByIdSuccessMessage: "User found Successfully!!!!",
+    getUserByIdFailureMessage: "Error while Selecting user!!!",
+    updateUserSuccessMessage: "Users Updated Successfully!!!!",
+    updateUserFailureMessage: "Error while Updating user!!!",
+    deleteUserSuccessMessage: "Users Deleted Successfully!!!!",
+    deleteUserFailureMessage: "Error while Deleting user!!!",
+    checkStatusSuccessMessage: "Api is working as expected!!!",
+    checkStatusFailureMessage: "Api is not  working as expected!!!",
+  },
+  healthCheckDummyUser: {
+    USER_NAME: "healthCheck",
+    USER_ADDRESS: "healthCheck",
+    USER_EMAIL_ID: "healthCheck",
+    USER_MOBILE: "healthCheck",
+    USER_SALARY: 0,
+  },
+};

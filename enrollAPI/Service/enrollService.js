@@ -23,11 +23,14 @@ enrollService.register = (user) => {
 enrollService.deRegister = (_id) => {
   return new Promise((resolve, reject) => {
     superagent
-      .delete(enrollUtils.concate(usersAPIRoutes.delete , _id))
+      .delete(enrollUtils.concate(usersAPIRoutes.delete , "/",_id))
       .end((err, res) => {
         if (err) {
           reject(err);
         }
+
+
+        console.log(res);
         resolve(JSON.parse(res.text).data);
       });
   });

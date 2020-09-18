@@ -86,7 +86,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/users/5JKZnclQ1ADgojoV",
+							"raw": "http://localhost:3000/api/users/lDj7kgeudboAUBHS",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -95,7 +95,7 @@
 							"path": [
 								"api",
 								"users",
-								"5JKZnclQ1ADgojoV"
+								"lDj7kgeudboAUBHS"
 							]
 						}
 					},
@@ -153,10 +153,20 @@
 				{
 					"name": "deleteUser",
 					"request": {
-						"method": "GET",
+						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:3000/api/users/jGfOviZUD6EdOYJ9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"jGfOviZUD6EdOYJ9"
+							]
 						}
 					},
 					"response": []
@@ -167,7 +177,107 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:3000/api/status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"status"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "enrollAPI",
+			"item": [
+				{
+					"name": "registerUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/enroll/register?USER_NAME=Aniket Gajjar&USER_ADDRESS=Ahemdabad&USER_MOBILE=9106447228&USER_EMAIL_ID=aniketgajjar966@gmail.com&USER_SALARY=50000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"enroll",
+								"register"
+							],
+							"query": [
+								{
+									"key": "USER_NAME",
+									"value": "Aniket Gajjar"
+								},
+								{
+									"key": "USER_ADDRESS",
+									"value": "Ahemdabad"
+								},
+								{
+									"key": "USER_MOBILE",
+									"value": "9106447228"
+								},
+								{
+									"key": "USER_EMAIL_ID",
+									"value": "aniketgajjar966@gmail.com"
+								},
+								{
+									"key": "USER_SALARY",
+									"value": "50000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deRegister User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/enroll/deRegister/sr5pTMk3K7nDGbiD",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"enroll",
+								"deRegister",
+								"sr5pTMk3K7nDGbiD"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "checkStatus",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"status"
+							]
 						}
 					},
 					"response": []

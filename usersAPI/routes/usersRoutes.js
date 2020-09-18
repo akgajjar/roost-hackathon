@@ -2,12 +2,16 @@
 const express = require("express");
 const router = express.Router();
 const usersDAO = require("../DAO/usersDAO.js");
+const utils = require("../utils/usersUtils.js");
+const apiRoutes = require("../epconfig.js").apiRoutes;
+const responseMessages = require("../epconfig.js").responseMessages;
+const dummyUser = require("../epconfig.js").healthCheckDummyUser;
 
 const bodyParser = require("body-parser");
 
 router.use(bodyParser.urlencoded({ extended: true }));
 
-router.post("/api/users", (req, res) => {
+router.post(apiRoutes.createUser, (req, res) => {
   const user = {
     USER_NAME: req.query.USER_NAME,
     USER_ADDRESS: req.query.USER_ADDRESS,
@@ -19,54 +23,58 @@ router.post("/api/users", (req, res) => {
   usersDAO
     .create(user)
     .then((insertedUser) => {
-      console.log("User Inserted Successfully!!!!");
+      console.log(responseMessages.createUserSuccessMessage);
       res.send({
         data: insertedUser,
-        Message: "User Inserted Successfully!!!!!",
+        Message: responseMessages.createUserSuccessMessage,
       });
       res.end();
     })
     .catch((err) => {
-      console.log("Error while inserting user!!!!");
-      res.send("Error while inserting User!!");
+      console.log(
+        utils.concate(responseMessages.createUserFailureMessage, err)
+      );
+      res.send(responseMessages.createUserFailureMessage);
     });
 });
 
-router.get("/api/users", (req, res) => {
+router.get(apiRoutes.getUsers, (req, res) => {
   usersDAO
     .get()
     .then((users) => {
-      console.log("Users found Successfully!!!!");
+      console.log(responseMessages.getUsersSuccessMessage);
       res.send({
         data: users,
-        Message: "Users found Successfully!!!!!",
+        Message: responseMessages.getUsersSuccessMessage,
       });
       res.end();
     })
     .catch((err) => {
-      console.log("Error while selecting users!!!!");
-      res.send("Error while selecting Users!!");
+      console.log(utils.concate(responseMessages.getUsersFailureMessage, err));
+      res.send(responseMessages.getUsersFailureMessage);
     });
 });
 
-router.get("/api/users/:_Id", (req, res) => {
+router.get(apiRoutes.getUserById, (req, res) => {
   usersDAO
     .getById(req.params._Id)
     .then((user) => {
-      console.log("User found Successfully!!!!");
+      console.log(responseMessages.getUserByIdSuccessMessage);
       res.send({
         data: user,
-        Message: "User found Successfully!!!!!",
+        Message: responseMessages.getUserByIdSuccessMessage,
       });
       res.end();
     })
     .catch((err) => {
-      console.log("Error while selecting user!!!!");
-      res.send("Error while selecting User!!");
+      console.log(
+        utils.concate(responseMessages.getUserByIdFailureMessage, err)
+      );
+      res.send(responseMessages.getUserByIdFailureMessage);
     });
 });
 
-router.put("/api/users/:_Id", (req, res) => {
+router.put(apiRoutes.updateUser, (req, res) => {
   const user = {
     USER_NAME: req.query.USER_NAME,
     USER_ADDRESS: req.query.USER_ADDRESS,
@@ -78,47 +86,43 @@ router.put("/api/users/:_Id", (req, res) => {
   usersDAO
     .update(req.params._Id, user)
     .then((updatedUser) => {
-      console.log("User Updated Successfully!!!!");
+      console.log(responseMessages.updateUserSuccessMessage);
       res.send({
         data: updatedUser,
-        Message: "User Updated Successfully!!!!!",
+        Message: responseMessages.updateUserSuccessMessage,
       });
       res.end();
     })
     .catch((err) => {
-      console.log("Error while Updating user!!!!");
-      res.send("Error while Updating User!!");
+      console.log(
+        utils.concate(responseMessages.updateUserFailureMessage, err)
+      );
+      res.send(responseMessages.updateUserFailureMessage);
     });
 });
 
-router.delete("/api/users/:_Id", (req, res) => {
+router.delete(apiRoutes.deleteUser, (req, res) => {
   usersDAO
     .remove(req.params._Id)
     .then((response) => {
-      console.log("User Deleted Successfully!!!!");
+      console.log(responseMessages.deleteUserSuccessMessage);
       res.send({
         data: response,
-        Message: "User Deleted Successfully!!!!!",
+        Message: responseMessages.deleteUserSuccessMessage,
       });
       res.end();
     })
     .catch((err) => {
-      console.log("Error while Deleting user!!!!" + err);
-      res.send("Error while Deleting User!!");
+      console.log(
+        utils.concate(responseMessages.deleteUserFailureMessage, err)
+      );
+      res.send(responseMessages.deleteUserFailureMessage);
     });
 });
 
-router.get("/api/status", async (req, res) => {
+router.get(apiRoutes.checkStatus, async (req, res) => {
   try {
-    const user = {
-      USER_NAME: "healthCheck",
-      USER_ADDRESS: "healthCheck",
-      USER_EMAIL_ID: "healthCheck",
-      USER_MOBILE: "healthCheck",
-      USER_SALARY: 0,
-    };
-
-    insertedUser = usersDAO.create(user);
+    insertedUser = usersDAO.create(dummyUser);
 
     const _id = insertedUser._id;
     delete insertedUser._id;
@@ -133,13 +137,13 @@ router.get("/api/status", async (req, res) => {
 
     res.send({
       healty: true,
-      message: "Api is working as expected",
+      message: responseMessages.checkStatusSuccessMessage,
     });
   } catch (err) {
-    console.log("Api is not working as expected!!!!" + err);
+    console.log(utils.concate(responseMessages.checkStatusFailureMessage, err));
     res.send({
       healty: false,
-      message: "Api is not  working as expected",
+      message: responseMessages.checkStatusFailureMessage,
     });
   }
 });

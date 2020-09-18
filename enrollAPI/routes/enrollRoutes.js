@@ -30,7 +30,9 @@ router.post(routes.register, (req, res) => {
       });
     })
     .catch((err) => {
-      console.log(utils.concate(responseMessage.registerUserFailureMessage, " " + err));
+      console.log(
+        utils.concate(responseMessage.registerUserFailureMessage, " " + err)
+      );
       res.send({
         message: responseMessage.registerUserFailureMessage,
         Error: err,
@@ -42,14 +44,14 @@ router.delete(routes.deRegister, (req, res) => {
   enrollService
     .deRegister(req.params._Id)
     .then((response) => {
-      console.log(utils.concate(responseMessage.deRegisterUserSuccessMessage, " ", err));
+      console.log(utils.concate(responseMessage.deRegisterUserSuccessMessage));
       res.send({
         message: responseMessage.deRegisterUserSuccessMessage,
         data: response,
       });
     })
     .catch((err) => {
-      console.log(responseMessage.deRegisterUserFailureMessage);
+      console.log(responseMessage.deRegisterUserFailureMessage, " ", err);
       res.send({
         message: responseMessage.deRegisterUserFailureMessage,
         Error: err,
@@ -67,7 +69,9 @@ router.get(routes.checkStatus, async (req, res) => {
       message: responseMessage.checkStatusSuccessMessage,
     });
   } catch (err) {
-    console.log(utils.concate(responseMessage.checkStatusFailureMessage, err));
+    console.log(
+      utils.concate(responseMessage.checkStatusFailureMessage, " ", err)
+    );
     res.send({
       healty: false,
       message: responseMessage.checkStatusFailureMessage,
