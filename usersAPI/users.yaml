@@ -35,9 +35,32 @@ spec:
     spec:
       containers:
       - name: users-api
-        image: users:v.1.0.0
+        image: users:v1.0.2
         stdin: true
         tty: true
         ports:
         - containerPort: 3000
+        readinessProbe:
+          httpGet:
+            path: /api/status
+            port: 3000
+          initialDelaySeconds: 5
+          timeoutSeconds: 2
+          periodSeconds: 5
+          failureThreshold: 3
+        livenessProbe:
+          httpGet:
+            path: /api/status
+            port: 3000
+          initialDelaySeconds: 5
+          timeoutSeconds: 2
+          periodSeconds: 5
+          failureThreshold: 3
+        resources:
+          limits:
+            cpu: 100m
+            memory: 120Mi
+          requests:
+            cpu: 50m
+            memory: 60Mi
         imagePullPolicy: Never
