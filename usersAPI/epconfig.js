@@ -9,7 +9,7 @@ module.exports = {
     root: "/",
   },
   env: {
-    port: 3000,
+    port: 3003,
     viewsFolder: "./views",
   },
   responseMessages: {

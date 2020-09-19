@@ -2,7 +2,7 @@ var buildUrl = require("build-url");
 const superagent = require("superagent");
 const usersAPIRoutes = require("../epConfig.js").usersAPIRoutes;
 const enrollUtils = require("../utils/enrollUtils.js");
-const usersAPIEndpoint = process.env.usersAPIEndpoint || "localhost:30001";
+const usersAPIEndpoint = process.env.usersAPIEndpoint || "localhost:3003";
 const utils = require("../utils/enrollUtils.js");
 
 var enrollService = {};
@@ -32,8 +32,7 @@ enrollService.deRegister = (_id) => {
         }
 
 
-        console.log(res);
-        resolve(JSON.parse(res.text).data);
+        resolve(JSON.parse(res.res.text).data);
       });
   });
 };
