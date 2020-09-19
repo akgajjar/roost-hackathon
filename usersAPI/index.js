@@ -8,7 +8,7 @@ const responseMessages = require("./epconfig.js").responseMessages;
 const utils = require("./utils/usersUtils.js");
 const env = require("./epconfig.js").env;
 
-const port = env.port;
+const port = process.env.port || env.port;
 
 
 app.use(morgan("short")); // we can use combined for detailed logs.

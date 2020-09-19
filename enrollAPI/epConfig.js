@@ -10,8 +10,8 @@ module.exports = {
     viewsFolder: "./views",
   },
   usersAPIRoutes: {
-    create: "http://localhost:3000/api/users",
-    delete: "http://localhost:3000/api/users",
+    create: "/api/users",
+    delete: "/api/users",
   },
   responseMessages: {
     rootResponse: "responding to root route",
