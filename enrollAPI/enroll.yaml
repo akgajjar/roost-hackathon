@@ -14,7 +14,7 @@ spec:
   - name: enrollapi
     port: 3001
     targetPort: 3001
-    nodePort: 30031
+    nodePort: 30002
 
 ---
 apiVersion: apps/v1
@@ -35,15 +35,18 @@ spec:
     spec:
       containers:
       - name: enroll-api
-        image: enroll:v1.0.0
+        image: enroll:v1.0.1
         stdin: true
         tty: true
         ports:
         - containerPort: 3001
+        env:
+        - name: usersAPIEndpoint
+          value: roost-worker1:30001
         readinessProbe:
           httpGet:
             path: /api/status
-            port: 3000
+            port: 3001
           initialDelaySeconds: 5
           timeoutSeconds: 2
           periodSeconds: 5
@@ -51,7 +54,7 @@ spec:
         livenessProbe:
           httpGet:
             path: /api/status
-            port: 3000
+            port: 3001
           initialDelaySeconds: 5
           timeoutSeconds: 2
           periodSeconds: 5

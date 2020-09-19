@@ -14,7 +14,7 @@ spec:
   - name: usersapi
     port: 3000
     targetPort: 3000
-    nodePort: 30030
+    nodePort: 30001
 
 ---
 apiVersion: apps/v1
@@ -35,7 +35,7 @@ spec:
     spec:
       containers:
       - name: users-api
-        image: users:v1.0.2
+        image: users:v1.0.3
         stdin: true
         tty: true
         ports:
