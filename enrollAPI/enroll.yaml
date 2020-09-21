@@ -12,8 +12,8 @@ spec:
     type: "enroll-api"
   ports:
   - name: enrollapi
-    port: 3001
-    targetPort: 3001
+    port: 3002
+    targetPort: 3002
     nodePort: 30002
 
 ---
@@ -35,16 +35,16 @@ spec:
     spec:
       containers:
       - name: enroll-api
-        image: enroll:v1.0.1
+        image: enroll:v1
         stdin: true
         tty: true
         ports:
-        - containerPort: 3001
+        - containerPort: 3002
         env:
         - name: usersAPIEndpoint
-          value: roost-controlplane:30001
+          value: usersapi:3003
         - name: port
-          value: "3001"
+          value: "3002"
         resources:
           limits:
             cpu: 100m
