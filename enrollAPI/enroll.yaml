@@ -40,6 +40,22 @@ spec:
         tty: true
         ports:
         - containerPort: 3002
+        readinessProbe:
+          httpGet:
+            path: /api/status
+            port: 3002
+          initialDelaySeconds: 2
+          timeoutSeconds: 2
+          periodSeconds: 5
+          failureThreshold: 3
+        livenessProbe:
+          httpGet:
+            path: /api/status
+            port: 3002
+          initialDelaySeconds: 5
+          timeoutSeconds: 2
+          periodSeconds: 10
+          failureThreshold: 3
         env:
         - name: usersAPIEndpoint
           value: usersapi:3003
