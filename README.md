@@ -1,7 +1,8 @@
 ﻿
 # **Description**
 
-    • This application was developed with Node js  programming language using the Express Framework, Nedb database and Javascript were implemented. The     application is dockerize and running on Roost cluster.
+    • This application was developed with Node js  programming language using the Express Framework, Nedb 
+    database and Javascript were implemented. The     application is dockerize and running on Roost cluster.
     • The challenge is uploaded on the github folder and the file name is roost-
     hackathon.
     • The database was deployed using in memory persistent volume in docker
