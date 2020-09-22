@@ -6,17 +6,21 @@
     • The challenge is uploaded on the github folder and the file name is roost-   hackathon.
     • The database was deployed using in memory persistent volume in docker container, This means that the data 
     volume is mounted on a the Docker Container.
-    • Roost Desktop was used in deploying the application to Roost Cluster. All the codes used in executing this challenge are all in the github folder. 
+    • Roost Desktop was used in deploying the application to Roost Cluster. All the codes used in executing this 
+    challenge are all in the github folder. 
     • There are two micrservice developed in this heackathon.
       1. EnrollAPI
       2. UsersAPI
-    • UserAPI includes Crud Endpoints for performing insert, update, delete, select all and select by id operation  and healthcheck end point for checking if application is running perfectly or not.
-    • EnrollAPI includes register user, deregister users and healthcheck endpoint. EnrollAPI calls usersAPI via http protocol to save users data into the memory.
+    • UserAPI includes Crud Endpoints for performing insert, update, delete, select all and select by id 
+    operation  and healthcheck end point for checking if application is running perfectly or not.
+    • EnrollAPI includes register user, deregister users and healthcheck endpoint. EnrollAPI calls usersAPI via 
+    http protocol to save users data into the memory.
       
 # **Description of the Database  **
     • Nedb database is used for this project
     • There is only one table users.
-    • Nedb is Embedded persistent or in memory database for Node.js, nw.js, Electron and browsers, 100% JavaScript, no binary dependency. 
+    • Nedb is Embedded persistent or in memory database for Node.js, nw.js, Electron and browsers, 100% 
+    JavaScript, no binary dependency. 
     • API is a subset of MongoDB's and it's plenty fast.
 
 
