@@ -12,8 +12,8 @@ spec:
     type: "users-api"
   ports:
   - name: usersapi
-    port: 3000
-    targetPort: 3000
+    port: 3003
+    targetPort: 3003
     nodePort: 30001
 
 ---
@@ -35,15 +35,15 @@ spec:
     spec:
       containers:
       - name: users-api
-        image: users:v1.0.3
+        image: users:v1
         stdin: true
         tty: true
         ports:
-        - containerPort: 3000
+        - containerPort: 3003
         readinessProbe:
           httpGet:
             path: /api/status
-            port: 3000
+            port: 3003
           initialDelaySeconds: 2
           timeoutSeconds: 2
           periodSeconds: 5
@@ -51,7 +51,7 @@ spec:
         livenessProbe:
           httpGet:
             path: /api/status
-            port: 3000
+            port: 3003
           initialDelaySeconds: 5
           timeoutSeconds: 2
           periodSeconds: 10

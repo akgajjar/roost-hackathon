@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "37ce6e1c-11c0-462f-a2da-4af8388fc041",
+		"_postman_id": "c44c27cb-ab8c-42a2-99fe-9e4cb6ec872f",
 		"name": "roost-hackathon",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -24,12 +24,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/users?USER_NAME=Aniket Gajjar&USER_ADDRESS=Ahemdabad&USER_MOBILE=9106447228&USER_EMAIL_ID=aniketgajjar966@gmail.com&USER_SALARY=50000",
+							"raw": "http://roost-worker1:30001/api/users?USER_NAME=Aniket Gajjar&USER_ADDRESS=Ahemdabad&USER_MOBILE=9106447228&USER_EMAIL_ID=aniketgajjar966@gmail.com&USER_SALARY=50000",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"roost-worker1"
 							],
-							"port": "3000",
+							"port": "30001",
 							"path": [
 								"api",
 								"users"
@@ -66,12 +66,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/users",
+							"raw": "http://roost-worker1:30001/api/users",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"roost-worker1"
 							],
-							"port": "3000",
+							"port": "30001",
 							"path": [
 								"api",
 								"users"
@@ -86,16 +86,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/users/lDj7kgeudboAUBHS",
+							"raw": "http://roost-worker1:30001/api/users/LQjSsS8FnBrSiHdO",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"roost-worker1"
 							],
-							"port": "3000",
+							"port": "30001",
 							"path": [
 								"api",
 								"users",
-								"lDj7kgeudboAUBHS"
+								"LQjSsS8FnBrSiHdO"
 							]
 						}
 					},
@@ -203,12 +203,12 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3001/api/enroll/register?USER_NAME=Aniket Gajjar&USER_ADDRESS=Ahemdabad&USER_MOBILE=9106447228&USER_EMAIL_ID=aniketgajjar966@gmail.com&USER_SALARY=50000",
+							"raw": "http://roost-worker1:30002/api/enroll/register?USER_NAME=Aniket Gajjar&USER_ADDRESS=Ahemdabad&USER_MOBILE=9106447228&USER_EMAIL_ID=aniketgajjar966@gmail.com&USER_SALARY=50000",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"roost-worker1"
 							],
-							"port": "3001",
+							"port": "30002",
 							"path": [
 								"api",
 								"enroll",
@@ -246,17 +246,17 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3001/api/enroll/deRegister/sr5pTMk3K7nDGbiD",
+							"raw": "http://roost-worker1:30002/api/enroll/deRegister/rMl8bcJBIhZQMuOA",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"roost-worker1"
 							],
-							"port": "3001",
+							"port": "30002",
 							"path": [
 								"api",
 								"enroll",
 								"deRegister",
-								"sr5pTMk3K7nDGbiD"
+								"rMl8bcJBIhZQMuOA"
 							]
 						}
 					},
@@ -268,12 +268,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3001/api/status",
+							"raw": "http://roost-worker1:30002/api/status",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"roost-worker1"
 							],
-							"port": "3001",
+							"port": "30002",
 							"path": [
 								"api",
 								"status"
