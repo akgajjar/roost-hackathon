@@ -1,5 +1,4 @@
-﻿
-# **Description**
+﻿# **Description**
 
     • This application was developed with Node js  programming language using the Express Framework, Nedb 
     database and Javascript were implemented. The application is dockerize and running on Roost cluster.
