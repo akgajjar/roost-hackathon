@@ -1,9 +1,7 @@
 ﻿
-# Description
+# **Description**
 
-    • This application was developed with Node js  programming language using the
-     Express Framework, Nedb database and Javascript were implemented. The
-      application is dockerize and running on Roost cluster.
+    • This application was developed with Node js  programming language using the Express Framework, Nedb database and Javascript were implemented. The     application is dockerize and running on Roost cluster.
     • The challenge is uploaded on the github folder and the file name is roost-
     hackathon.
     • The database was deployed using in memory persistent volume in docker
@@ -20,7 +18,7 @@
     • EnrollAPI includes register user, deregister users and healthcheck endpoint.
      EnrollAPI calls usersAPI via http protocol to save users data into the memory.
       
-# Description of the Database  
+# **Description of the Database  **
     • Nedb database is used for this project
     • There is only one table users.
     • Nedb is Embedded persistent or in memory database for Node.js, nw.js,
@@ -29,7 +27,7 @@
 
 
 
-# Step by Step guide to deploying application
+# **Step by Step guide to deploying application**
     1. Do a git clone of the project or download app_clone.sh stored in root
      github folder and run bash app_clone.sh
     2. install roost desktop into your machine and open roost folder of repository
@@ -46,9 +44,9 @@
      (Nedb).
     8. Now you can hit endpoints.
 
-# The Following Endpoints were implemented :
+# **The Following Endpoints were implemented :**
 
-### UsersAPI
+### **UsersAPI**
 
 Name | Method | URL
 -----|--------|-----
@@ -59,7 +57,7 @@ Select User by Id | Get | /api/users/:id
 Select Users | Get | /api/users
 Health Check  | Get |  /api/status
 
-### EnrollAPI
+### **EnrollAPI**
 
 Name | Method | URL
 -----|--------|-----
@@ -67,7 +65,7 @@ Register User | Post | /api/enroll
 Deregister User | Delete | /api/enroll/:id
 Health Check | Get | /api/status
 
-# Stack Includes
+# **Stack Includes**
 
     • node js 
     • express framework 
