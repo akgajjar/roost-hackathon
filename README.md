@@ -13,8 +13,8 @@
       2. UsersAPI
     • UserAPI includes Crud Endpoints for performing insert, update, delete, select all and select by id 
     operation  and healthcheck end point for checking if application is running perfectly or not.
-    • EnrollAPI includes register user, deregister users and healthcheck endpoint. EnrollAPI calls usersAPI via 
-    http protocol to save users data into the memory.
+    • EnrollAPI includes register user, deregister users and healthcheck endpoint. EnrollAPI calls usersAPI 
+    via http protocol to save users data into the memory.
       
 # **Description of the Database  **
     • Nedb database is used for this project
