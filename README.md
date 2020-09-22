@@ -2,12 +2,9 @@
 # **Description**
 
     • This application was developed with Node js  programming language using the Express Framework, Nedb 
-    database and Javascript were implemented. The     application is dockerize and running on Roost cluster.
-    • The challenge is uploaded on the github folder and the file name is roost-
-    hackathon.
-    • The database was deployed using in memory persistent volume in docker
-     container , this means that The data volume is mounted on a the Docker
-      Container.
+    database and Javascript were implemented. The application is dockerize and running on Roost cluster.
+    • The challenge is uploaded on the github folder and the file name is roost-   hackathon.
+    • The database was deployed using in memory persistent volume in docker container, This means that the data volume is mounted on a the Docker Container.
     • Roost Desktop was used in deploying the application to Roost Cluster. All
      the codes used in executing this challenge are all in the github folder. 
     • There are two micrservice developed in this heackathon .
