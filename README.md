@@ -16,7 +16,7 @@
     • EnrollAPI includes register user, deregister users and healthcheck endpoint. EnrollAPI calls usersAPI 
     via http protocol to save users data into the memory.
       
-# **Description of the Database  **
+# **Description of the Database**
     • Nedb database is used for this project
     • There is only one table users.
     • Nedb is Embedded persistent or in memory database for Node.js, nw.js, Electron and browsers, 100% 
@@ -26,10 +26,13 @@
 
 
 # **Step by Step guide to deploying application**
-    1. Do a git clone of the project or download app_clone.sh stored in root github folder and run bash app_clone.sh
+    1. Do a git clone of the project or download app_clone.sh stored in root github folder and run bash 
+    app_clone.sh
     2. install roost desktop into your machine and open roost folder of repository in roost.
-    3. Right click on enroll/enroll.dockerfile and click on build. Give name enroll and tag name v1 in dialogue box and click on build. 
-    4. Right click on users/users.dockerfile and click on build. Give name users and tag name v1 in dialogue box and click on build.
+    3. Right click on enroll/enroll.dockerfile and click on build. Give name enroll and tag name v1 in 
+    dialogue box and click on build. 
+    4. Right click on users/users.dockerfile and click on build. Give name users and tag name v1 in 
+    dialogue box and click on build.
     5. Right click enroll.yaml file and click on apply to ZKE and after that click on apply. 
     6. Right click users.yaml file and click on apply to ZKE and after that click on apply.
     7. The Roost will deploy the application (Users and Enroll API’s) and database (Nedb).
